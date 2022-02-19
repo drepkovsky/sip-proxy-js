@@ -1,0 +1,40 @@
+{
+  "uri": "sip:192.168.0.102:5060;transport=TCP",
+  "method": "REGISTER",
+  "headers": {
+    "via": [
+      {
+        "version": "2.0",
+        "protocol": "TCP",
+        "host": "192.168.0.102",
+        "port": 61821,
+        "params": {
+          "branch": "z9hG4bK-524287-1---99d39edbcc7d7129",
+          "rport": null,
+          "received": "192.168.0.102"
+        }
+      }
+    ],
+    "max-forwards": "70",
+    "contact": [
+      {
+        "uri": "sip:domko@192.168.0.102:61821;rinstance=2f9865b75e4bd3aa;transport=tcp",
+        "params": {}
+      }
+    ],
+    "to": { "uri": "sip:domko@192.168.0.102:5060;transport=TCP", "params": {} },
+    "from": {
+      "uri": "sip:domko@192.168.0.102:5060;transport=TCP",
+      "params": { "tag": "1728c80f" }
+    },
+    "call-id": "JGdo2yU51_AMS51CIfxcQg..",
+    "cseq": { "seq": 1, "method": "REGISTER" },
+    "expires": "70",
+    "allow": "INVITE, ACK, CANCEL, BYE, NOTIFY, REFER, MESSAGE, OPTIONS, INFO, SUBSCRIBE",
+    "supported": "replaces, norefersub, extended-refer, timer, outbound, path, X-cisco-serviceuri",
+    "user-agent": "Z 5.5.9 v2.10.17.3",
+    "allow-events": "presence, kpml, talk",
+    "content-length": 0
+  },
+  "content": ""
+}
