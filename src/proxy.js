@@ -6,6 +6,7 @@ const {
   getFrom,
   getTo,
   buildInvite,
+  buildRequest,
 } = require("./helpers");
 const db = require("./db");
 const User = require("./user");
@@ -30,7 +31,15 @@ const handleInvite = (req) => {
   const userFrom = db.getUser(getName(getFrom(req).uri));
 
   // send invite to the user
-  proxy.send(sip.makeResponse(buildInvite(user)));
+  proxy.send(
+    sip.makeResponse(
+      buildRequest(userTo, userFrom, getCallId(req)),
+      100,
+      "Trying"
+    )
+  );
+
+  proxy.send();
 };
 
 const handler = (req) => {
