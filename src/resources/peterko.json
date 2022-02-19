@@ -1,0 +1,36 @@
+{
+  "uri": "sip:domko@192.168.0.102:61821;rinstance=5c1d441e38f84715;transport=UDP",
+  "method": "INVITE",
+  "headers": {
+    "via": [
+      {
+        "version": "2.0",
+        "protocol": "UDP",
+        "host": "192.168.0.103",
+        "port": 55812,
+        "params": {
+          "branch": "z9hG4bK-524287-1---e09a8ebce690049d",
+          "rport": 55812,
+          "received": "192.168.0.103"
+        }
+      }
+    ],
+    "max-forwards": "70",
+    "contact": [
+      { "uri": "sip:peterko@192.168.0.103:55812;transport=UDP", "params": {} }
+    ],
+    "to": { "uri": "sip:domko@192.168.0.102:5060", "params": {} },
+    "from": {
+      "uri": "sip:peterko@192.168.0.102:5060;transport=UDP",
+      "params": { "tag": "fc118f28" }
+    },
+    "call-id": "KF2lHBp2c41KyUX-OA7KaA..",
+    "cseq": { "seq": 1, "method": "INVITE" },
+    "allow": "INVITE, ACK, CANCEL, BYE, NOTIFY, REFER, MESSAGE, OPTIONS, INFO, SUBSCRIBE",
+    "content-type": "application/sdp",
+    "user-agent": "Z 5.5.9 v2.10.17.3",
+    "allow-events": "presence, kpml, talk",
+    "content-length": 331
+  },
+  "content": "v=0\r\no=Z 340804763 1 IN IP4 192.168.0.103\r\ns=Z\r\nc=IN IP4 192.168.0.103\r\nt=0 0\r\nm=audio 63845 RTP/AVP 106 9 98 101 0 8 3\r\na=rtpmap:106 opus/48000/2\r\na=fmtp:106sprop-maxcapturerate=16000; minptime=20; useinbandfec=1\r\na=rtpmap:98 telephone-event/48000\r\na=fmtp:98 0-16\r\na=rtpmap:101 telephone-event/8000\r\na=fmtp:101 0-16\r\na=sendrecv\r\n"
+}

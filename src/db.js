@@ -1,18 +1,19 @@
-function Database() {
-  this.users = {};
+class Database {
+  constructor() {
+    this.registry = {};
+  }
 
-  const addUser = (user) => {
-    this.users[user.name] = user;
-  };
+  add(username, contact) {
+    this.registry[username] = contact;
+  }
 
-  const getUser = (name) => {
-    return this.users[name];
-  };
+  get(username) {
+    return this.registry[username];
+  }
 
-  return {
-    addUser,
-    getUser,
-  };
+  remove(username) {
+    delete this.registry[username];
+  }
 }
 
 const db = new Database();
