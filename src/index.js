@@ -1,10 +1,9 @@
 const proxy = require("sip/proxy");
 const sip = require("sip");
 const db = require("./db");
-const util = require("util");
 
-const ADDRESS = "192.168.1.80";
 const PORT = 5060;
+const ADDRESS = "192.168.1.80";
 const PROXY = `${ADDRESS}:${PORT}`;
 
 // HELPERS
@@ -67,37 +66,32 @@ const handleRequest = (req) => {
 
 // START
 try {
-  proxy.start(
-    {
-      address: ADDRESS,
-      port: PORT,
-    },
-    (req) => {
-      console.log(`\nReceived ${req.method} from ${req.headers.from.uri}`);
+  proxy.start({}, (req, flow, lol) => {
+    console.log(flow, lol);
+    console.log(`\nReceived ${req.method} from ${req.headers.from.uri}`);
 
-      if (req.method === "REGISTER") {
-        handleRegister(req);
-      } else if (
-        [
-          "INVITE",
-          "ACK",
-          "CANCEL",
-          "BYE",
-          "NOTIFY",
-          "REFER",
-          "MESSAGE",
-          "OPTIONS",
-          "INFO",
-          "SUBSCRIBE",
-        ].includes(req.method)
-      ) {
-        handleRequest(req);
-      } else {
-        return proxy.send(sip.makeResponse(req, 401, "Method Not Allowed"));
-      }
+    if (req.method === "REGISTER") {
+      handleRegister(req);
+    } else if (
+      [
+        "INVITE",
+        "ACK",
+        "CANCEL",
+        "BYE",
+        "NOTIFY",
+        "REFER",
+        "MESSAGE",
+        "OPTIONS",
+        "INFO",
+        "SUBSCRIBE",
+      ].includes(req.method)
+    ) {
+      handleRequest(req);
+    } else {
+      return proxy.send(sip.makeResponse(req, 401, "Method Not Allowed"));
     }
-  );
+  });
+  console.log("SIP proxy started");
 } catch (e) {
   console.warn(e);
 }
-console.log("SIP PROXY STARTED AT", `${ADDRESS}:${PORT}\n\n`);
