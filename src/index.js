@@ -2,8 +2,8 @@ const proxy = require("sip/proxy");
 const sip = require("sip");
 const db = require("./db");
 
+const ADDRESS = "192.168.100.7";
 const PORT = 5060;
-const ADDRESS = "192.168.1.80";
 const PROXY = `${ADDRESS}:${PORT}`;
 
 // HELPERS
@@ -23,8 +23,7 @@ const handleRegister = (req) => {
 
   console.log(`User ${user} registered`);
 
-  const res = sip.makeResponse(req, 200, "OK");
-  proxy.send(res);
+  proxy.send(sip.makeResponse(req, 200, "OK"));
 };
 
 const handleRequest = (req) => {
