@@ -1,0 +1,10 @@
+dom -> peterko
+dom DIALED peterko at 1. 3. 2022, 22:54:31
+peterko ACCEPTED dom at 1. 3. 2022, 22:54:33
+dom BYE peterko at 1. 3. 2022, 22:54:36
+Call duration: 2.918 s
+
+peterko -> dom
+peterko DIALED dom at 1. 3. 2022, 22:54:40
+dom REJECTED peterko at 1. 3. 2022, 22:54:42
+
