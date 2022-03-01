@@ -51,10 +51,6 @@ const log = (req, _from, _to) => {
     logData.type = Logger.TYPE_OK;
   }
 
-  console.log(logData);
-
-  logger.log(logData);
-
   return { from, to };
 };
 
@@ -101,7 +97,7 @@ const handleRequest = (req) => {
 
 // START
 try {
-  sip.start({}, (req) => {
+  proxy.start({}, (req) => {
     console.log(`\nReceived ${req.method} from ${req.headers.from.uri}`);
 
     if (req.method === "REGISTER") {

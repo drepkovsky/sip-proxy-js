@@ -17,7 +17,6 @@ class Logger {
   }
 
   _hash(logData) {
-    console.log(logData);
     const [from, to] = [logData.from, logData.to].sort();
     return `${from}-${to}`;
   }
